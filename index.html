@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker!</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Check Password!</h1>
+        <label>Verify Your Password:</label>
+        <br>
+        <input type="password" placeholder="8_characters" id="pass">
+        <br><br>
+
+        <button onclick="checkPassword()">Click it!</button>
+
+        <p id="show"></p>
+    </div>
+
+    <!-- JS functionality start -->
+
+    <script>
+        // Function to verify the password using do-while
+        function checkPassword() {
+            let password;
+            let minLength = 8;
+            let isValid = false; //
+            do {
+
+                password = document.getElementById("pass").value;
+
+
+                if (password.length < minLength) {
+                    document.getElementById("show").innerHTML = "Incorrect Password! Please try again.";
+                    isValid = false;  // Password is not valid
+                    break;
+                } else {
+                    isValid = true;  // Password is valid
+                }
+
+            } while (!isValid);
+
+            if (isValid) {
+                document.getElementById("show").innerHTML = "That's Good! It's a Valid Password.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
